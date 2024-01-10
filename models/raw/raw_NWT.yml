@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: NWT
+    description: 'Description of the CUSTOMER Source'
+    tables:
+      - name: CUSTOMER
+        description: 'Description of the CUSTOMER Table'
+    config:
+      database: 'NWT_RAW_DATABASE'
+      schema: 'NWT'
