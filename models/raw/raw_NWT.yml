@@ -6,9 +6,8 @@ sources:
     tables:
       - name: CUSTOMER
         description: 'Description of the CUSTOMER Table'
+      - name: CATEGORY
+        description: 'Description of the CATEGORY Table'
     config:
       database: 'NWT_RAW_DATABASE'
       schema: 'NWT'
-
-
-
