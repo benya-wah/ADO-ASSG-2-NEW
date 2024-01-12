@@ -2,12 +2,16 @@ version: 2
 
 sources:
   - name: NWT
-    description: 'Description of the CUSTOMER Source'
+    description: 'Description of the Data Source'
     tables:
       - name: CUSTOMER
         description: 'Description of the CUSTOMER Table'
       - name: CATEGORY
         description: 'Description of the CATEGORY Table'
+      - name: EMPLOYEE
+        description: 'Description of the EMPLOYEE Table'
+      - name: EMPLOYEE_TERRITORY
+        description: 'Description for the EMPLOYEE TERRITORY Table'
     config:
       database: 'NWT_RAW_DATABASE'
       schema: 'NWT'

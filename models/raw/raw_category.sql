@@ -1,4 +1,5 @@
 {{ config (materialized='table')}}
 
-select *
-from {{ source('NWT', 'CATEGORY') }}
+Select *
+From 
+NWT_RAW_DATABASE.NWT.CATEGORY
