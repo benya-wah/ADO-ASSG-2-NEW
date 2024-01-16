@@ -1,0 +1,2 @@
+SELECT reportsTo FROM RAW_EMPLOYEE
+
