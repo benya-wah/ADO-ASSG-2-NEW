@@ -39,3 +39,10 @@ models:
       +materialized: view
     reporting:
       +materialized: table
+    ORDER_FRESH:
+      +materialized: table
+      unique_key: orderID
+    ORDER_DETAIL_FRESH:
+      +materialized: table
+      unique_key: orderID
+

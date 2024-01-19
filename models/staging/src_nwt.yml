@@ -1,0 +1,143 @@
+version: 2
+
+sources:
+  - name: NWT
+    description: a clone of the Snowflake Database
+    database: NWT_RAW_DATABASE
+    schema: NWT
+    tables:
+      - name: CATEGORY
+        description: raw category table
+        columns:
+          - name: categoryID
+            description: primary key for category table
+            tests:
+              - not_null
+              - unique
+      - name: CUSTOMER
+        description: raw customer table
+        columns:
+          - name: customerID
+            description: primary key for customer table
+            tests:
+              - not_null
+              - unique
+      - name: EMPLOYEE
+        description: raw employee table
+        columns:
+          - name: employeeID
+            description: primary key for employee table
+            tests:
+              - not_null
+              - unique
+          - name: reports_to
+            description: foreign key for employee table
+      - name: EMPLOYEE_TERRITORY
+        description: raw employee territory table
+        columns:
+          - name: employeeID
+            description: composite key for raw employee_territory table
+            tests:
+              - not_null
+          - name: territoryID
+            description: composite key for raw employee_territory table
+            tests:
+              - not_null
+            constraints:
+              - type: unique
+                columns: [employeeID, territoryID]
+      - name: ORDERS
+        description: raw order table
+        columns:
+          - name: orderID
+            description: primary key for raw order table
+            tests:
+              - not_null
+              - unique
+          - name: customerID
+            description: foreign key in raw order table
+            tests:
+              - not_null
+          - name: employeeID
+            description: foreign key in raw order table
+            tests: 
+              - not_null
+      - name: ORDER_DETAIL
+        description: raw order detail table
+        columns:
+          - name: orderID
+            description: composite key for raw order detail table
+            tests:
+              - not_null
+          - name: productID
+            description: composite key for raw order detail table
+            tests:
+              - not_null
+            constraints:
+              - type: unique
+                columns: [orderID, productID]
+      - name: PRODUCT
+        description: raw product table
+        columns:
+          - name: productID 
+            description: primary key for raw product table
+            tests:
+              - not_null
+              - unique
+          - name: supplierID
+            description: foreign key for raw product table 
+            tests: 
+              - not_null
+          - name: categoryID
+            description: primary key for raw product table
+            tests:
+              - not_null
+      - name: REGION
+        description: raw region table
+        columns:
+          - name: regionID
+            description: primary key for raw region table
+            tests:
+              - not_null
+      - name: SHIPPER
+        description: raw shipper table
+        columns:
+          - name: shipperID
+            description: primary key for raw shipper table
+            tests:
+              - not_null
+              - unique
+      - name: SUPPLIER
+        description: raw supplier table
+        columns: 
+          - name: supplierID
+            description: primary key for raw supplier table
+            tests:
+              - not_null
+              - unique
+      - name: TERRITORY
+        description: raw territory table
+        columns:
+          - name: territoryID
+            description: primary key for raw territory table
+            tests:
+              - not_null
+              - unique
+          - name: regionID
+            description: foreign key for raw region table
+            tests: 
+              - not_null
+      - name: ORDER_FRESH
+        description: fresh orders to be appended into ORDER table
+        columns:
+          - name: orderID
+            description: primary key for FRESH_ORDERS
+          - name: customerID
+            description: foreign key for FRESH_ORDERS
+          - name: employeeID
+            description: foreign key for FRESH_ORDERS
+      - name: ORDER_DETAIL_FRESH
+        description: fresh order details to be appended into ORDER DETAILS table
+        columns:
+          - name: orderID
+            description: primary key for FRESH_ORDERS
