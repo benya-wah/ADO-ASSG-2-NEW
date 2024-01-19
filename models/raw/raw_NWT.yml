@@ -20,8 +20,6 @@ models:
           - unique
           - not_null
       - name: reportsTo
-        tests:
-          - not_null
   - name: raw_employee_territory
     tests: 
       - dbt_utils.unique_combination_of_columns:

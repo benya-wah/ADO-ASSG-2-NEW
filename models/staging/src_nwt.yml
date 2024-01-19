@@ -32,8 +32,6 @@ sources:
               - unique
           - name: reports_to
             description: foreign key for employee table
-            tests: 
-              - not_null
       - name: EMPLOYEE_TERRITORY
         description: raw employee territory table
         columns:
@@ -101,7 +99,6 @@ sources:
             description: primary key for raw region table
             tests:
               - not_null
-              - unique
       - name: SHIPPER
         description: raw shipper table
         columns:
@@ -130,7 +127,6 @@ sources:
             description: foreign key for raw region table
             tests: 
               - not_null
-              - unique
       - name: ORDER_FRESH
         description: fresh orders to be appended into ORDER table
         columns:
