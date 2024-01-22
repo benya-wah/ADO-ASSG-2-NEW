@@ -1,0 +1,11 @@
+{{ config (materialized='table')}}
+
+SELECT
+    p.*,
+    pf.UNITCOST
+FROM
+    NWT_RAW_DATABASE.NWT.PRODUCT p
+INNER JOIN
+    NWT_RAW_DATABASE.NWT.NWT_PRODUCT_FRESH pf
+ON
+    p.PRODUCTID = pf.PRODUCTID
